@@ -1,52 +1,192 @@
-# Coding Exercise
+# Full-Stack Engineering Take-Home Exercise
 
-### Application overview
+👋 Hello from Berry Street! 
 
-A simple full-stack project using Node.js/Express for the backend and React for the frontend. The backend features a mock API powered by `json-server`, simulating a third-party service. It includes a single route, `/products`, which returns all products. The frontend fetches data directly from this endpoint.
+Thanks for taking the time to work on our coding exercise. We've designed this to be an engaging way for you to show us how you think about building products that make a difference. Don't worry too much about getting everything perfect - we're more interested in seeing your approach and thought process.
 
-### Instructions for running the app
+**Time Expectation:** While we suggest spending 3-4 hours on core requirements, feel free to invest more time if you're excited about additional features or improvements that showcase your product thinking. We appreciate your enthusiasm, but also value your time - so no pressure to go overboard!
 
-To run the application, follow these steps:
+## Overview
 
-1. **Navigate to the `api` directory:**
+This is a full-stack application built with Node.js/Express backend and React frontend. The backend includes a mock API (powered by `json-server`) that simulates a product catalog service.
+
+### Product Thinking Opportunity
+
+We encourage you to think beyond just the technical implementation. This exercise is intentionally open-ended to allow you to:
+
+- Make thoughtful product decisions about the user experience
+- Fill in any gaps in the requirements based on reasonable assumptions
+- Add features that you think would benefit the end user
+- Document your product decisions and their rationale
+- Consider real-world scenarios and edge cases
+
+Strong submissions often go beyond the basic requirements to create a more complete and polished product experience. Feel free to:
+
+- Enhance the UI/UX with additional features that make sense
+- Add helpful product metadata or functionality
+- Improve error messaging and user feedback
+- Consider accessibility and internationalization
+- Add data visualizations or analytics features
+- Implement any other features you think would be valuable
+
+Just be sure to document your choices and reasoning in your submission.
+
+### Data Structure
+
+Products have the following structure:
+```json
+{
+  "id": "string",
+  "name": "string",
+  "characteristics": ["string"]  // e.g., ["Humane", "Locally Produced", "Healthy"]
+}
+```
+
+Available characteristics: "Humane", "Locally Produced", "Healthy", "Plastic-Free", "Unhealthy", "Wasteful", "Vegan"
+
+## Tasks
+
+### Backend (Express API)
+
+1. Implement a route that filters products by characteristic:
+   - Endpoint: GET `/products?characteristic=value`
+   - Should efficiently handle multiple concurrent requests
+   - Consider caching strategies for performance
+
+2. Create a product scoring system:
+   - Endpoint: GET `/products/scores`
+   - Scoring rules:
+     - +1: "Humane", "Locally Produced", "Healthy"
+     - +2: "Plastic-Free"
+     - -1: "Unhealthy", "Wasteful"
+   - Return products with their calculated scores
+   - Optimize for performance at scale
+
+### Frontend (React)
+
+3. Build a responsive product grid:
+   - Display products in a 3-column layout
+   - Show product name and score
+   - Implement loading states
+   - Handle error cases
+
+4. [Bonus] Add characteristic filtering:
+   - Create a UI for selecting multiple characteristics
+   - Update the product grid based on selected filters
+   - Maintain a clean and intuitive user experience
+
+## Setup Instructions
+
+### Prerequisites
+- Node.js (v16 or higher)
+- Yarn package manager
+- Git
+
+### Getting Started
+
+1. Clone this repository to your local machine:
+   ```bash
+   git clone <repository-url>
+   cd <repository-name>
+   ```
+
+2. Set up and start the backend:
    ```bash
    cd api
-   ```
-2. **Install dependencies:**
-   ```bash
-   yarn
-   ```
-3. **Start the express server:**
-   ```bash
+   yarn install
    yarn start
    ```
-4. **Open a new terminal window and navigate to the `client` directory::**
+   The API server will start on port 3005, and the JSON server on port 4000.
+
+3. In a new terminal, set up and start the frontend:
    ```bash
    cd client
-   ```
-5. **Install dependencies:**
-   ```bash
-   yarn
-   ```
-6. **Start the react application:**
-   ```bash
+   yarn install
    yarn start
    ```
+   The React development server will start on port 3000 and should automatically open in your default browser.
 
-### Note:
+### Verifying Setup
+- Backend API should be accessible at: http://localhost:3005
+- JSON Server should be accessible at: http://localhost:4000/products and should return data like:
+  ```json
+  [
+    {
+      "name": "Sprockets",
+      "characteristics": [
+        "Plastic-Free",
+        "Locally Produced"
+      ],
+      "id": "dcea"
+    },
+    {
+      "name": "Cogs",
+      "characteristics": [
+        "Plastic-Free",
+        "Wasteful"
+      ],
+      "id": "0f8f"
+    },
+    {
+      "name": "Face Cream",
+      "characteristics": [
+        "Humane",
+        "Vegan",
+        "Locally Produced"
+      ],
+      "id": "9880"
+    },
+    {
+      "name": "Muskers",
+      "characteristics": [
+        "Wasteful",
+        "Unhealthy"
+      ],
+      "id": "5015"
+    },
+    {
+      "name": "Hand Sanitizer",
+      "characteristics": [
+        "Vegan",
+        "Humane"
+      ],
+      "id": "04dd"
+    },
+    {
+      "name": "Lettuce",
+      "characteristics": [
+        "Vegan",
+        "Humane",
+        "Healthy"
+      ],
+      "id": "0219"
+    }
+  ]
+  ```
+- Frontend should be accessible at: http://localhost:3000
 
-Port numbers are hardcoded in the codebase. If you need to adjust them, ensure you update the values everywhere they are relevant in the application. Currently, the ports are configured as follows:
+### Port Configuration
+- Express Server: 3005
+- JSON Server: 4000
+- React App: 3000
 
-- **Express Server:** `3005`
-- **JSON server:** `4000`
-- **React App:** `3000`
+## Submission Instructions
 
-### Exercise tasks
+1. Create a private GitHub repository
+2. Push your code with clear commit messages
+3. Include a README with:
+   - Setup instructions
+   - Your design decisions
+   - Performance considerations
+   - What you would do differently with more time
+4. Email the repository link to blake@berrystreet.co
+   - Ensure the repository is set to public or that blake@berrystreet.co has been added as a collaborator
 
-1. Write a new route that takes the characteristic as a query parameter and returns a list of products with that characteristic. Note that when evaluating this route we will assume this is functioning at scale so take performance at scale into account.
+## Troubleshooting
 
-2. Write a new route that returns a list of products with a score associated with each product. The score will be based on characteristic composition. Characteristics "Humane", "Locally Produced", "Healthy" are worth 1 point, "Plastic-Free" is worth 2 points, "Unhealthy" and "Wasteful" are -1 point each. Once again assume performance at scale if you can and use any method you see fit to make the endpoint more performant.
+If you encounter port conflicts:
+1. Check if the ports (3000, 3005, 4000) are available
+2. Modify the port numbers in the respective configuration files
+3. Update the `BASE_API_URL` in the frontend accordingly
 
-3. Display products on the frontend in a three-column grid, including each product's name and score.
-
-4. [Bonus] Implement filters for all characteristics on the frontend, allowing users to select a filter and view only the products that match those criteria.
+For any questions, please reach out to blake@berrystreet.co

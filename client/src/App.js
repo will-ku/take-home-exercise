@@ -1,16 +1,20 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
-import logo from "./logo.svg";
 import "./App.css";
 
-const BASE_API_URL = "http://localhost:3005"; // Adjust if necessary
+const BASE_API_URL = "http://localhost:3005";
 
 const App = () => {
+  const [products, setProducts] = useState([]);
+
+  // This initial data fetch is just to verify your setup is working.
+  // Feel free to modify or remove it as you build your solution.
   useEffect(() => {
     const fetchProducts = async () => {
       try {
         const response = await axios.get(`${BASE_API_URL}/products`);
-        console.log(response.data);
+        setProducts(response.data);
+        console.log('Products loaded:', response.data);
       } catch (error) {
         console.error("Error fetching products:", error);
       }
@@ -21,20 +25,24 @@ const App = () => {
 
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+      <header className="header">
+        <h1>Product Compass</h1>
       </header>
+      <div className="setup-message">
+        ✅ If you're seeing the list of products below, everything is up and running!
+      </div>
+      <div>
+        {products.map((product, index) => (
+          <div key={index} className="product-item">
+            <h3>{product.name}</h3>
+            {product.characteristics.map((char, charIndex) => (
+              <span key={charIndex} className="characteristic-tag">
+                {char}
+              </span>
+            ))}
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
