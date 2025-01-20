@@ -172,15 +172,15 @@ Available characteristics: "Humane", "Locally Produced", "Healthy", "Plastic-Fre
 
 ## Submission Instructions
 
-1. Create a private GitHub repository
-2. Push your code with clear commit messages
-3. Include a README with:
+1. Fork this repository to your own GitHub account
+2. Make your changes in your forked repository
+3. Update the README with:
    - Setup instructions
    - Your design decisions
    - Performance considerations
    - What you would do differently with more time
-4. Email the repository link to blake@berrystreet.co
-   - Ensure the repository is set to public or that blake@berrystreet.co has been added as a collaborator
+4. Email the link to your forked repository to blake@berrystreet.co
+   - Ensure your forked repository is public
 
 ## Troubleshooting
 
