@@ -1,6 +1,10 @@
 # Full-Stack Engineering Take-Home Exercise
 
-**Time Expectation:** While we suggest spending 3-4 hours on core requirements, feel free to invest more time if you're excited about additional features or improvements that showcase your product thinking.
+👋 Hello from Berry Street! 
+
+Thanks for taking the time to work on our coding exercise. We've designed this to be an engaging way for you to show us how you think about building products that make a difference. Don't worry too much about getting everything perfect - we're more interested in seeing your approach and thought process.
+
+**Time Expectation:** While we suggest spending 3-4 hours on core requirements, feel free to invest more time if you're excited about additional features or improvements that showcase your product thinking. We appreciate your enthusiasm, but also value your time - so no pressure to go overboard!
 
 ## Overview
 
@@ -39,14 +43,6 @@ Products have the following structure:
 ```
 
 Available characteristics: "Humane", "Locally Produced", "Healthy", "Plastic-Free", "Unhealthy", "Wasteful"
-
-## Technical Requirements
-
-- Use the existing Node.js/Express backend and React frontend structure
-- Write clean, maintainable, and well-documented code
-- Include error handling and loading states
-- Consider performance optimization for scale
-- Add appropriate tests for new functionality
 
 ## Tasks
 
@@ -96,16 +92,6 @@ Available characteristics: "Humane", "Locally Produced", "Healthy", "Plastic-Fre
 - JSON Server: 4000
 - React App: 3000
 
-## Evaluation Criteria
-
-We will evaluate your submission based on:
-- Code quality and organization
-- Performance considerations
-- Error handling and edge cases
-- Testing approach
-- UI/UX decisions
-- Documentation
-
 ## Submission Instructions
 
 1. Create a private GitHub repository
@@ -115,7 +101,8 @@ We will evaluate your submission based on:
    - Your design decisions
    - Performance considerations
    - What you would do differently with more time
-4. Share the repository with [GITHUB_USERNAME]
+4. Email the repository link to blake@berrystreet.co
+   - Ensure the repository is set to public or that blake@berrystreet.co has been added as a collaborator
 
 ## Troubleshooting
 
@@ -124,4 +111,4 @@ If you encounter port conflicts:
 2. Modify the port numbers in the respective configuration files
 3. Update the `BASE_API_URL` in the frontend accordingly
 
-For any questions, please reach out to [CONTACT_EMAIL]
+For any questions, please reach out to blake@berrystreet.co
