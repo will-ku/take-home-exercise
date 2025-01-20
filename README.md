@@ -108,7 +108,10 @@ Available characteristics: "Humane", "Locally Produced", "Healthy", "Plastic-Fre
 
 ### Verifying Setup
 - Backend API should be accessible at: http://localhost:3005
-- JSON Server should be accessible at: http://localhost:4000/products and should return data like:
+- JSON Server should be accessible at: http://localhost:4000/products and should return product data
+  <details>
+    <summary>Example response (click to expand) - Shows 6 products including "Sprockets", "Cogs", etc.</summary>
+
   ```json
   [
     {
@@ -163,6 +166,7 @@ Available characteristics: "Humane", "Locally Produced", "Healthy", "Plastic-Fre
     }
   ]
   ```
+  </details>
 - Frontend should be accessible at: http://localhost:3000
 
 ### Port Configuration
