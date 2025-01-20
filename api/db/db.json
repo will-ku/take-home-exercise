@@ -1,15 +1,15 @@
 {
   "products": [
     {
-      "name": "sprokets",
+      "name": "Sprockets",
       "characteristics": ["Plastic-Free", "Locally Produced"]
     },
     {
-      "name": "cogs",
+      "name": "Cogs",
       "characteristics": ["Plastic-Free", "Wasteful"]
     },
     {
-      "name": "face cream",
+      "name": "Face Cream",
       "characteristics": ["Humane", "Vegan", "Locally Produced"]
     },
     {
@@ -17,7 +17,7 @@
       "characteristics": ["Wasteful", "Unhealthy"]
     },
     {
-      "name": "hand sanitizer",
+      "name": "Hand Sanitizer",
       "characteristics": ["Vegan", "Humane"]
     },
     {

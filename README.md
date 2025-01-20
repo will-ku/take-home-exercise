@@ -42,7 +42,7 @@ Products have the following structure:
 }
 ```
 
-Available characteristics: "Humane", "Locally Produced", "Healthy", "Plastic-Free", "Unhealthy", "Wasteful"
+Available characteristics: "Humane", "Locally Produced", "Healthy", "Plastic-Free", "Unhealthy", "Wasteful", "Vegan"
 
 ## Tasks
 
@@ -108,7 +108,61 @@ Available characteristics: "Humane", "Locally Produced", "Healthy", "Plastic-Fre
 
 ### Verifying Setup
 - Backend API should be accessible at: http://localhost:3005
-- JSON Server should be accessible at: http://localhost:4000
+- JSON Server should be accessible at: http://localhost:4000/products and should return data like:
+  ```json
+  [
+    {
+      "name": "Sprockets",
+      "characteristics": [
+        "Plastic-Free",
+        "Locally Produced"
+      ],
+      "id": "dcea"
+    },
+    {
+      "name": "Cogs",
+      "characteristics": [
+        "Plastic-Free",
+        "Wasteful"
+      ],
+      "id": "0f8f"
+    },
+    {
+      "name": "Face Cream",
+      "characteristics": [
+        "Humane",
+        "Vegan",
+        "Locally Produced"
+      ],
+      "id": "9880"
+    },
+    {
+      "name": "Muskers",
+      "characteristics": [
+        "Wasteful",
+        "Unhealthy"
+      ],
+      "id": "5015"
+    },
+    {
+      "name": "Hand Sanitizer",
+      "characteristics": [
+        "Vegan",
+        "Humane"
+      ],
+      "id": "04dd"
+    },
+    {
+      "name": "Lettuce",
+      "characteristics": [
+        "Vegan",
+        "Humane",
+        "Healthy"
+      ],
+      "id": "0219"
+    }
+  ]
+  ```
 - Frontend should be accessible at: http://localhost:3000
 
 ### Port Configuration
