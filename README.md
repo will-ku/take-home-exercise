@@ -77,15 +77,39 @@ Available characteristics: "Humane", "Locally Produced", "Healthy", "Plastic-Fre
 
 ## Setup Instructions
 
-1. Clone this repository
-2. Start the backend:
+### Prerequisites
+- Node.js (v16 or higher)
+- Yarn package manager
+- Git
+
+### Getting Started
+
+1. Clone this repository to your local machine:
    ```bash
-   cd api && yarn && yarn start
+   git clone <repository-url>
+   cd <repository-name>
    ```
-3. Start the frontend:
+
+2. Set up and start the backend:
    ```bash
-   cd client && yarn && yarn start
+   cd api
+   yarn install
+   yarn start
    ```
+   The API server will start on port 3005, and the JSON server on port 4000.
+
+3. In a new terminal, set up and start the frontend:
+   ```bash
+   cd client
+   yarn install
+   yarn start
+   ```
+   The React development server will start on port 3000 and should automatically open in your default browser.
+
+### Verifying Setup
+- Backend API should be accessible at: http://localhost:3005
+- JSON Server should be accessible at: http://localhost:4000
+- Frontend should be accessible at: http://localhost:3000
 
 ### Port Configuration
 - Express Server: 3005
