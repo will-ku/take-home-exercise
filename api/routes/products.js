@@ -1,18 +1,12 @@
 import express from "express";
-import axios from "axios";
+import productControllers from "../controllers/productControllers.js";
 
 const router = express.Router();
-const jsonServerUrl = "http://localhost:4000"; // Adjust if necessary
 
-// Route to get all posts from JSON Server
-router.get("/", async (req, res) => {
-  try {
-    const response = await axios.get(`${jsonServerUrl}/products`);
-    res.json(response.data);
-  } catch (error) {
-    console.error("Error fetching posts:", error);
-    res.status(500).send("Error fetching posts");
-  }
-});
+// Route to get all products from JSON Server
+router.get("/", productControllers.getProducts);
+
+// Route to get valid characteristics
+router.get("/characteristics", productControllers.getValidCharacteristics);
 
 export default router;
