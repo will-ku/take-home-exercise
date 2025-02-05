@@ -1,10 +1,14 @@
 import NodeCache from "node-cache";
 import productModels from "../models/products.js";
-import { VALID_CHARACTERISTICS } from "../constants/productCharacteristics.js";
+import {
+  VALID_CHARACTERISTICS,
+  CHARCTERISTIC_SCORES,
+} from "../constants/productCharacteristics.js";
 
 const cache = new NodeCache({ stdTTL: 300 });
-const CACHE_KEY = "products"; // All products
-const INDEX_KEY = "index"; // Index of products by characteristics
+const PRODUCTS_CACHE_KEY = "products"; // Array of all products
+const CHARACTERISTICS_INDEX_KEY = "index"; // Index of products by characteristics
+const SCORES_CACHE_KEY = "scores"; // An object with productId's and scores
 
 const createIndexWithCharacteristics = (products) => {
   const index = {};
@@ -26,15 +30,16 @@ const createIndexWithCharacteristics = (products) => {
  * If no characteristics are provided, it returns all products.
  */
 const getProducts = async (characteristics) => {
-  let products = cache.get(CACHE_KEY);
-  let index = cache.get(INDEX_KEY);
+  let products = cache.get(PRODUCTS_CACHE_KEY);
+  let index = cache.get(CHARACTERISTICS_INDEX_KEY);
 
   if (!products || !index) {
     products = await productModels.getProducts();
     index = createIndexWithCharacteristics(products);
     cache.mset([
-      { key: CACHE_KEY, val: products },
-      { key: INDEX_KEY, val: index },
+      { key: PRODUCTS_CACHE_KEY, val: products },
+      { key: CHARACTERISTICS_INDEX_KEY, val: index },
+      { key: SCORES_CACHE_KEY, val: {} },
     ]);
   }
 
@@ -50,6 +55,33 @@ const getProducts = async (characteristics) => {
   }
 
   return Array.from(filteredProducts);
+};
+
+const calculateScores = (product) => {
+  let score = 0;
+
+  product.characteristics.forEach((characteristic) => {
+    score += CHARCTERISTIC_SCORES[characteristic];
+  });
+
+  return score;
+};
+
+const getProductScores = async () => {
+  let productScores = cache.get(SCORES_CACHE_KEY) || {};
+
+  if (Object.keys(productScores).length) return productScores;
+
+  const products = await getProducts();
+
+  products.forEach((product) => {
+    const score = calculateScores(product);
+    productScores[product.id] = score;
+  });
+
+  cache.set(SCORES_CACHE_KEY, productScores);
+
+  return productScores;
 };
 
 /**
@@ -79,5 +111,6 @@ const validateCharacteristics = (characteristics) => {
 
 export default {
   getProducts,
+  getProductScores,
   validateCharacteristics,
 };

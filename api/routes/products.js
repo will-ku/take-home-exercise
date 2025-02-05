@@ -6,6 +6,9 @@ const router = express.Router();
 // Route to get all products from JSON Server
 router.get("/", productControllers.getProducts);
 
+// Route to get products with their calculated scores
+router.get("/scores", productControllers.getProductsWithScores);
+
 // Route to get valid characteristics
 router.get("/characteristics", productControllers.getValidCharacteristics);
 
