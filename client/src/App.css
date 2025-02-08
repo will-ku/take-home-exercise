@@ -1,30 +1,74 @@
 .App {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
   font-family: Arial, sans-serif;
+  color: var(--primary-color);
 }
 
-.header {
-  margin-bottom: 20px;
+.App-content {
+  margin: 0 auto;
+  max-width: 800px;
+  padding: var(--spacing-lg);
+}
+
+button {
+  border: none;
+  border-radius: var(--spacing-sm);
+  padding: var(--spacing-sm) var(--spacing-md);
+  font-size: var(--fs-md);
+  cursor: pointer;
+  font-weight: 600;
+}
+
+button.primary {
+  background-color: var(--primary-color);
+  color: var(--white);
+}
+
+button.secondary {
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
 }
 
 .setup-message {
   background: #e8f5e9;
-  padding: 10px;
-  margin-bottom: 20px;
+  padding: var(--spacing-sm);
+  margin-bottom: var(--spacing-sm);
 }
 
 .product-item {
-  margin-bottom: 10px;
-  padding: 10px;
+  margin-bottom: var(--spacing-sm);
+  padding: var(--spacing-sm);
   border: 1px solid #ddd;
 }
 
-.characteristic-tag {
-  background: #eee;
-  padding: 2px 8px;
-  margin-right: 5px;
-  border-radius: 3px;
-  font-size: 14px;
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px 20px;
+  padding: 20px 0;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .grid-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .grid-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  padding: var(--spacing-md);
+  border-radius: var(--spacing-sm);
+  min-height: 200px;
+  background-color: #fff;
+  margin: 0 0 10px 0;
+  transition: all 0.2s ease-in-out;
 }

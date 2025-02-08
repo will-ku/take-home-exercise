@@ -1,0 +1,49 @@
+.loading-grid.fade-out {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.loading-title {
+  height: 24px;
+  width: 70%;
+  background: var(--lighter-gray);
+  margin-bottom: var(--spacing-sm);
+  border-radius: 4px;
+  animation: pulse 1.5s infinite;
+}
+
+.loading-score {
+  height: 16px;
+  width: 40%;
+  background: var(--lighter-gray);
+  margin-bottom: var(--spacing-sm);
+  border-radius: 4px;
+  animation: pulse 1.5s infinite;
+}
+
+.loading-characteristics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm) 5px;
+  margin-top: auto;
+}
+
+.loading-tag {
+  height: 24px;
+  width: 80px;
+  background: var(--lighter-gray);
+  border-radius: var(--spacing-sm);
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 0.6;
+  }
+}
