@@ -7,6 +7,7 @@
   margin: 0 auto;
   max-width: 800px;
   padding: var(--spacing-lg);
+  background-color: var(--secondary-color);
 }
 
 button {
@@ -34,12 +35,15 @@ button.secondary {
   margin-bottom: var(--spacing-sm);
 }
 
-.product-item {
-  margin-bottom: var(--spacing-sm);
-  padding: var(--spacing-sm);
-  border: 1px solid #ddd;
+.screenreader-only {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
 }
 
+/* Shared between Product Grid and Loading Grid*/
 .grid-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -65,10 +69,10 @@ button.secondary {
 .card {
   display: flex;
   flex-direction: column;
+  background-color: var(--white);
   padding: var(--spacing-md);
   border-radius: var(--spacing-sm);
-  min-height: 200px;
-  background-color: #fff;
+  min-height: 100px;
   margin: 0 0 10px 0;
   transition: all 0.2s ease-in-out;
 }

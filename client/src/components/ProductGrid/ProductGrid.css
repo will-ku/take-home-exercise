@@ -1,0 +1,11 @@
+.grid-container.empty-grid {
+  display: flex;
+  grid-template-columns: unset;
+  align-items: center;
+  height: 50vh;
+}
+
+.empty-grid p {
+  width: 100%;
+  text-align: center;
+}

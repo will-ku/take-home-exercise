@@ -1,4 +1,4 @@
-import "./Filter.css";
+import "../Filter.css";
 
 const DropdownOption = ({
   characteristic,

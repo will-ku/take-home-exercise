@@ -18,6 +18,9 @@
   --spacing-sm: 8px;
   --spacing-md: 16px;
   --spacing-lg: 24px;
+
+  /* Box Shadows */
+  --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 body {
@@ -33,4 +36,8 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+p {
+  font-size: var(--fs-sm);
 }

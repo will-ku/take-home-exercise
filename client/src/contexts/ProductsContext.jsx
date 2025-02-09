@@ -1,11 +1,11 @@
-import { createContext, useState, useEffect, useContext } from "react";
+import { createContext, useState, useEffect, useContext, useMemo } from "react";
 import { useFiltersContext } from "./FiltersContext";
 import { getProducts, getProductScores } from "../api";
 
-const ProductContext = createContext();
+const ProductsContext = createContext();
 
-export const ProductProvider = ({ children }) => {
-  const { selectedCharacteristics } = useFiltersContext();
+export const ProductsProvider = ({ children }) => {
+  const { selectedCharacteristics, search } = useFiltersContext();
 
   const [products, setProducts] = useState([]);
   const [isLoadingProducts, setIsLoadingProducts] = useState(false);
@@ -47,10 +47,17 @@ export const ProductProvider = ({ children }) => {
     fetchScores();
   }, []);
 
+  const filteredProducts =
+    search?.length > 0
+      ? products.filter((product) =>
+          product.name.toLowerCase().includes(search.toLowerCase())
+        )
+      : products;
+
   return (
-    <ProductContext.Provider
+    <ProductsContext.Provider
       value={{
-        products,
+        products: filteredProducts,
         isLoadingProducts,
         productsError,
         scores,
@@ -59,16 +66,16 @@ export const ProductProvider = ({ children }) => {
       }}
     >
       {children}
-    </ProductContext.Provider>
+    </ProductsContext.Provider>
   );
 };
 
-export const useProductContext = () => {
-  const context = useContext(ProductContext);
+export const useProductsContext = () => {
+  const context = useContext(ProductsContext);
   if (context === null) {
     throw new Error(
-      "useProductContext must be used within a ProductProvider. " +
-        "Wrap a parent component in <ProductProvider> to fix this error."
+      "useProductsContext must be used within a ProductsProvider. " +
+        "Wrap a parent component in <ProductsProvider> to fix this error."
     );
   }
   return context;

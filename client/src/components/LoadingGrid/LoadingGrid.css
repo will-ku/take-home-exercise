@@ -6,7 +6,7 @@
 .loading-title {
   height: 24px;
   width: 70%;
-  background: var(--lighter-gray);
+  background: var(--light-gray);
   margin-bottom: var(--spacing-sm);
   border-radius: 4px;
   animation: pulse 1.5s infinite;
@@ -15,7 +15,7 @@
 .loading-score {
   height: 16px;
   width: 40%;
-  background: var(--lighter-gray);
+  background: var(--light-gray);
   margin-bottom: var(--spacing-sm);
   border-radius: 4px;
   animation: pulse 1.5s infinite;
@@ -31,7 +31,7 @@
 .loading-tag {
   height: 24px;
   width: 80px;
-  background: var(--lighter-gray);
+  background: var(--light-gray);
   border-radius: var(--spacing-sm);
   animation: pulse 1.5s infinite;
 }

@@ -1,19 +1,19 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
-import { FilterProvider } from "./contexts/FiltersContext";
-import { ProductProvider } from "./contexts/ProductsContext";
+import { FiltersProvider } from "./contexts/FiltersContext";
+import { ProductsProvider } from "./contexts/ProductsContext";
 import reportWebVitals from "./reportWebVitals";
 import "./index.css";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <FilterProvider>
-      <ProductProvider>
+    <FiltersProvider>
+      <ProductsProvider>
         <App />
-      </ProductProvider>
-    </FilterProvider>
+      </ProductsProvider>
+    </FiltersProvider>
   </React.StrictMode>
 );
 

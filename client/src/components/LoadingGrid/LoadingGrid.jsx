@@ -1,14 +1,18 @@
 import "./LoadingGrid.css";
 
-const LoadingCard = () => (
+export const LoadingCardBottom = () => (
+  <div className="loading-characteristics">
+    <div className="loading-tag"></div>
+    <div className="loading-tag"></div>
+    <div className="loading-tag"></div>
+  </div>
+);
+
+export const LoadingCard = () => (
   <div className="loading-card card">
     <div className="loading-title"></div>
     <div className="loading-score"></div>
-    <div className="loading-characteristics">
-      <div className="loading-tag"></div>
-      <div className="loading-tag"></div>
-      <div className="loading-tag"></div>
-    </div>
+    <LoadingCardBottom />
   </div>
 );
 

@@ -1,10 +1,17 @@
 .product-card:hover {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--box-shadow);
   transform: translateY(-1px);
+  cursor: pointer;
 }
 
 .product-card h3 {
   margin: 0 0 var(--spacing-sm) 0;
+}
+
+.product-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .score {

@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
-import { useFiltersContext } from "../../contexts/FiltersContext";
+import { useFiltersContext } from "../../../contexts/FiltersContext";
 import DropdownOption from "./CharacteristicDropdownOption";
-import "./Filter.css";
+import "../Filter.css";
 
 const CharacteristicDropdown = () => {
   const { characteristics, selectedCharacteristics, toggleCharacteristic } =
@@ -38,7 +38,14 @@ const CharacteristicDropdown = () => {
           aria-expanded={isOpen}
           aria-controls="characteristics-menu"
         >
-          <span className="filter__button-text" title={dropdownLabel}>
+          <span
+            className={`filter__button-text ${
+              selectedCharacteristics.length === 0
+                ? "filter__button-inactive"
+                : ""
+            }`}
+            title={dropdownLabel}
+          >
             {dropdownLabel}
           </span>
           <span className="filter__button-icon" aria-hidden="true">
